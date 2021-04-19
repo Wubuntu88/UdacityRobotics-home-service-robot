@@ -1,12 +1,14 @@
 #!/bin/sh
 
-# TURTLEBOT WORLD: launches gazebo with a world file.
+# TURTLEBOT GAZEBO WORLD: launches gazebo with a world file.
+# package turtlebot_gazebo, launch file: turtlebot_world.launch
 xterm -e "roslaunch turtlebot_gazebo turtlebot_world.launch" &
 sleep 10
 
 # gmapping demo performs SLAM (Simultaneous localization and mapping).
 # this launch file is inside of the `turtlebot_gazebo` project,
 # not in the ros-perception/slam_gmapping as listed in the course.  (The course is wrong)
+# package turtlebot_gazebo, launch file: gmapping_demo.launch
 xterm -e "roslaunch turtlebot_gazebo gmapping_demo.launch" &
 sleep 10
 
