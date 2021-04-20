@@ -7,7 +7,7 @@ sleep 10
 
 # TURTLEBOT GAZEBO AMCL DEMO
 # package turtlebot_gazebo, launch file: amcl_demo.launch
-xterm -e "roslaunch turtlebot_gazebo amcl_demo.launch" &
+xterm -e "roslaunch turtlebot_gazebo amcl_demo.launch map_file:=/home/workspace/catkin_ws/src/map/map.yaml" &
 sleep 10
 
 # TURTLEBOT_RVIZ_LAUNCHERS launches rviz and automatically loads the robot model, trajectories, and map.
