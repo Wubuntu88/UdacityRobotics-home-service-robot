@@ -29,8 +29,9 @@ int main(int argc, char** argv){
   pickup_goal.target_pose.header.stamp = ros::Time::now();
 
   // Set pickup location
-  pickup_goal.target_pose.pose.position.x = 1.0;
-  pickup_goal.target_pose.pose.position.y = 1.0;
+  pickup_goal.target_pose.pose.position.x = -0.218393549323;
+  pickup_goal.target_pose.pose.position.y = -3.51883244514;
+  pickup_goal.target_pose.pose.position.z = 0.0;
   pickup_goal.target_pose.pose.orientation.w = 1.0;
   pickup_goal.target_pose.pose.orientation.z = 0.0;
 
@@ -53,8 +54,9 @@ int main(int argc, char** argv){
 
   drop_off_goal.target_pose.header.frame_id = "map";
   drop_off_goal.target_pose.header.stamp = ros::Time::now();
-  drop_off_goal.target_pose.pose.position.x = -1.0;
-  drop_off_goal.target_pose.pose.position.y = -1.0;
+  drop_off_goal.target_pose.pose.position.x = 0.406369149685;
+  drop_off_goal.target_pose.pose.position.y = 0.988759219646;
+  drop_off_goal.target_pose.pose.position.z = 0.0;
   drop_off_goal.target_pose.pose.orientation.w = 1.0;
   drop_off_goal.target_pose.pose.orientation.z = 0.0;
 
