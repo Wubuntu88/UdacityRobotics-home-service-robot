@@ -63,6 +63,9 @@ int main(int argc, char** argv){
   ROS_INFO("Sending drop-off goal");
   ac.sendGoal(drop_off_goal);
 
+  // Wait an infinite time for the results
+  ac.waitForResult();
+
   if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
     ROS_INFO("The robot has successfully reached the drop-off goal.");
     robotPosNodeHandle.setParam("robot_is_at_drop_off_loc", true);
