@@ -68,7 +68,7 @@ int main( int argc, char** argv )
     bool robot_is_at_pickup_loc = false;
     nh.getParam("robot_is_at_pickup_loc", robot_is_at_pickup_loc);
     while( ! robot_is_at_pickup_loc ) {
-        sleep(0.25)
+        sleep(0.25);
         nh.getParam("robot_is_at_pickup_loc", robot_is_at_pickup_loc);
     }
 
