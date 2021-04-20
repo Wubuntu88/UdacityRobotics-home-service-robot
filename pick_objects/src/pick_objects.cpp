@@ -42,17 +42,18 @@ int main(int argc, char** argv){
   ac.waitForResult();
 
   // Check if the robot reached its goal
-  if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
+  if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
     ROS_INFO("The robot has reached the pickup goal");
     robotPosNodeHandle.setParam("robot_is_at_pickup_loc", true);
-  else
+  } else {
     ROS_WARN_ONCE("The robot failed to reach the pickup goal");
+  }
 
   ros::Duration(5).sleep(); // sleep for 5 seconds
 
   drop_off_goal.target_pose.header.frame_id = "map"
   drop_off_goal.target_pose.header.stamp = ros::Time::now();
-  drop_off_goal.target_pose.position.x = -1.0;
+  drop_off_goal.target_pose.pose.position.x = -1.0;
   drop_off_goal.target_pose.pose.position.y = -1.0;
   drop_off_goal.target_pose.pose.orientation.w = 1.0;
   drop_off_goal.target_pose.pose.orientation.z = 0.0;
