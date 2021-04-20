@@ -51,7 +51,7 @@ int main(int argc, char** argv){
 
   ros::Duration(5).sleep(); // sleep for 5 seconds
 
-  drop_off_goal.target_pose.header.frame_id = "map"
+  drop_off_goal.target_pose.header.frame_id = "map";
   drop_off_goal.target_pose.header.stamp = ros::Time::now();
   drop_off_goal.target_pose.pose.position.x = -1.0;
   drop_off_goal.target_pose.pose.position.y = -1.0;
