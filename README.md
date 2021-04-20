@@ -24,6 +24,18 @@ catkin_make
 source devel/setup.bash
 ```
 
+To create the pick_objects package, perform the following command:
+(This is not necessary you pull the repo)
+```
+catkin_create_pkg pick_objects move_base_msgs actionlib roscpp
+```
+
+To create the add_markers package, perform the following command:
+```
+catkin_create_pkg add_markers 
+```
+
+
 Copy these lines into the /home/workspace/.student_bashrc file and run `source /home/workspace/.student_bashrc`
 This will eliminate the `No module named rospkg` when starting gazebo.
 ```bash

@@ -13,7 +13,7 @@ int main(int argc, char** argv){
   MoveBaseClient ac("move_base", true);
 
   //Node handle to set ros parameters so other nodes know when the robot has reached a destination.
-  ros::NodeHandle robotPosNodeHandle("robot_positions");
+  ros::NodeHandle robotPosNodeHandle;
   robotPosNodeHandle.setParam("robot_is_at_pickup_loc", false);
   robotPosNodeHandle.setParam("robot_is_at_drop_off_loc", false);
 
@@ -24,13 +24,15 @@ int main(int argc, char** argv){
 
   move_base_msgs::MoveBaseGoal pickup_goal, drop_off_goal;
 
-  // set up the frame parameters
+  // set up the frame id and stamp
   pickup_goal.target_pose.header.frame_id = "map";
   pickup_goal.target_pose.header.stamp = ros::Time::now();
 
-  // Define a position and orientation for the robot to reach
+  // Set pickup location
   pickup_goal.target_pose.pose.position.x = 1.0;
+  pickup_goal.target_pose.pose.position.y = 1.0;
   pickup_goal.target_pose.pose.orientation.w = 1.0;
+  pickup_goal.target_pose.pose.orientation.z = 0.0;
 
    // Send the goal position and orientation for the robot to reach
   ROS_INFO("Sending pickup goal");
@@ -50,8 +52,10 @@ int main(int argc, char** argv){
 
   drop_off_goal.target_pose.header.frame_id = "map"
   drop_off_goal.target_pose.header.stamp = ros::Time::now();
-  drop_off_goal.target_pose.header.position.x = -1.0;
-  drop_off_goal.target_pose.header.position.y = -1.0;
+  drop_off_goal.target_pose.position.x = -1.0;
+  drop_off_goal.target_pose.pose.position.y = -1.0;
+  drop_off_goal.target_pose.pose.orientation.w = 1.0;
+  drop_off_goal.target_pose.pose.orientation.z = 0.0;
 
   ROS_INFO("Sending drop-off goal");
   ac.sendGoal(drop_off_goal);
