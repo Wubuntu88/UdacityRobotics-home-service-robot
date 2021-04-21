@@ -84,6 +84,9 @@ rosrun map_server map_saver
 to get a map.pgm and map.yaml file.
 the map.yaml file is referenced in the test_navigation.sh script.
 
+The map is located here and is used in the start scripts:
+https://github.com/Wubuntu88/UdacityRobotics-home-service-robot/tree/main/map
+
 Here is a visualization of what the map looks like in RViz:
 ![test slam map](images/test_slam_map.png)
 
