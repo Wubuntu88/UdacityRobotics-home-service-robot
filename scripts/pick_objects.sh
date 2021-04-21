@@ -12,7 +12,7 @@ sleep 10
 
 # TURTLEBOT_RVIZ_LAUNCHERS launches rviz and automatically loads the robot model, trajectories, and map.
 # package:  turtlebot_rviz_launchers , launch file: view_navigation.launch
-xterm -e "roslaunch turtlebot_rviz_launchers view_navigation.launch"
+xterm -e "roslaunch turtlebot_rviz_launchers view_navigation.launch" &
 sleep 5
 
 # PICK_OBJECTS c++ node.  This will direct the robot to the pickup location,
