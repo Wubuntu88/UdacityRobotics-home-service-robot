@@ -13,8 +13,10 @@ sleep 10
 # TURTLEBOT_RVIZ_LAUNCHERS launches rviz and automatically loads the robot model, trajectories, and map.
 # package:  turtlebot_rviz_launchers , launch file: view_navigation.launch
 # xterm -e "roslaunch turtlebot_rviz_launchers view_navigation.launch" &
-# the marker_viz_rviz.launch is the same as the view_navigation.launch,
-# but automatically has marker visualization.
+# It takes a long time to add the marker visualization in rviz,
+# and the robot will already have gone to the pickup location,
+# so I added a config to automatically use the marker visualization.
+# same as view_navigation.launch, but automatically has marker visualization.
 xterm -e "roslaunch pick_objects marker_viz_rviz.launch" &
 sleep 5
 
