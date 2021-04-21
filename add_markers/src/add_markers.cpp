@@ -29,9 +29,9 @@ int main( int argc, char** argv )
     // Set the marker action.  Options are ADD, DELETE, and new in ROS Indigo: 3 (DELETEALL)
     marker.action = visualization_msgs::Marker::ADD;
 
-    // Set the pose of the marker.  This is a full 6DOF pose relative to the frame/time specified in the header
-    marker.pose.position.x = -0.218393549323;
-    marker.pose.position.y = -3.51883244514;
+    // Set the marker at the pickup location at middle of the bottom hallway
+    marker.pose.position.x = 2.68486404419;
+    marker.pose.position.y = -2.00983738899;
     marker.pose.position.z = 0;
     marker.pose.orientation.x = 0.0;
     marker.pose.orientation.y = 0.0;
@@ -39,14 +39,14 @@ int main( int argc, char** argv )
     marker.pose.orientation.w = 1.0;
 
     // Set the scale of the marker -- 1x1x1 here means 1m on a side
-    marker.scale.x = 1.0;
-    marker.scale.y = 1.0;
-    marker.scale.z = 1.0;
+    marker.scale.x = 0.25;
+    marker.scale.y = 0.25;
+    marker.scale.z = 0.25;
 
     // Set the color -- be sure to set alpha to something non-zero!
-    marker.color.r = 0.0f;
-    marker.color.g = 1.0f;
-    marker.color.b = 0.0f;
+    marker.color.r = 0.1f;
+    marker.color.g = 0.5f;
+    marker.color.b = 1.0f;
     marker.color.a = 1.0;
 
     marker.lifetime = ros::Duration();
@@ -77,8 +77,9 @@ int main( int argc, char** argv )
     marker_pub.publish(marker);
 
     // Setting up marker to be added to the drop-off location
-    marker.pose.position.x = 0.406369149685;
-    marker.pose.position.y = 0.988759219646;
+    // Top of the middle hallway (left of the top hallway)
+    marker.pose.position.x = -0.133507564664;
+    marker.pose.position.y = 4.03573846817;
     marker.pose.position.z = 0;
     marker.pose.orientation.x = 0.0;
     marker.pose.orientation.y = 0.0;
