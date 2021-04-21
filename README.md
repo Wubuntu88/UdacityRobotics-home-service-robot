@@ -54,7 +54,7 @@ catkin_create_pkg add_markers
 ```
 
 Copy these lines into the /home/workspace/.student_bashrc file and run `source /home/workspace/.student_bashrc`
-This will eliminate the `No module named rospkg` when starting gazebo.
+This will eliminate the `No module named rospkg` error when starting gazebo.
 ```bash
 export PATH=/usr/bin:$PATH
 source /opt/ros/kinetic/setup.bash
