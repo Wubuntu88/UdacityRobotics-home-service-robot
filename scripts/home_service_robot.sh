@@ -17,4 +17,9 @@ sleep 5
 
 # PICK_OBJECTS c++ node.  This will direct the robot to the pickup location,
 # wait 5 seconds, and direct the robot to the drop-off location.
-xterm -e "rosrun pick_objects pick_objects"
+xterm -e "rosrun pick_objects pick_objects" &
+
+# ADD_MARKERS c++ node.  This will add a marker at the pickup zone.
+# Delete the marker when the robot reaches the pickup zone,
+# and add the marker at the drop-off zone when the robot arrives at the drop-off zone.
+xterm -e "rosrun add_markers add_markers"

@@ -28,12 +28,12 @@ int main(int argc, char** argv){
   pickup_goal.target_pose.header.frame_id = "map";
   pickup_goal.target_pose.header.stamp = ros::Time::now();
 
-  // Set pickup location
-  pickup_goal.target_pose.pose.position.x = -0.218393549323;
-  pickup_goal.target_pose.pose.position.y = -3.51883244514;
+  // Set pickup location at middle of the bottom hallway
+  pickup_goal.target_pose.pose.position.x = 2.68486404419;
+  pickup_goal.target_pose.pose.position.y = -2.00983738899;
   pickup_goal.target_pose.pose.position.z = 0.0;
   pickup_goal.target_pose.pose.orientation.w = 1.0;
-  pickup_goal.target_pose.pose.orientation.z = 0.0;
+  pickup_goal.target_pose.pose.orientation.z = 0.0; // point right
 
    // Send the goal position and orientation for the robot to reach
   ROS_INFO("Sending pickup goal");
@@ -54,11 +54,12 @@ int main(int argc, char** argv){
 
   drop_off_goal.target_pose.header.frame_id = "map";
   drop_off_goal.target_pose.header.stamp = ros::Time::now();
-  drop_off_goal.target_pose.pose.position.x = 0.406369149685;
-  drop_off_goal.target_pose.pose.position.y = 0.988759219646;
+  // Set drop-off location to be the top of the middle hallway (left of the top hallway)
+  drop_off_goal.target_pose.pose.position.x = -0.133507564664;
+  drop_off_goal.target_pose.pose.position.y = 4.03573846817;
   drop_off_goal.target_pose.pose.position.z = 0.0;
   drop_off_goal.target_pose.pose.orientation.w = 1.0;
-  drop_off_goal.target_pose.pose.orientation.z = 0.0;
+  drop_off_goal.target_pose.pose.orientation.z = 1.57079; // point up
 
   ROS_INFO("Sending drop-off goal");
   ac.sendGoal(drop_off_goal);

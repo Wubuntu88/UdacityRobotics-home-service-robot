@@ -35,7 +35,6 @@ To create the add_markers package, perform the following command:
 catkin_create_pkg add_markers 
 ```
 
-
 Copy these lines into the /home/workspace/.student_bashrc file and run `source /home/workspace/.student_bashrc`
 This will eliminate the `No module named rospkg` when starting gazebo.
 ```bash
@@ -43,3 +42,13 @@ export PATH=/usr/bin:$PATH
 source /opt/ros/kinetic/setup.bash
 alias ss="source devel/setup.bash"
 ```
+## Generate the map
+Run the test_slam.sh file and create a map by looking at RViz so that it looks like the Gazebo world.
+When the RViz display looks like the Gazebo display, run the mapsaver command:
+```
+rosrun map_server map_saver
+```
+to get a map.pgm and map.yaml file.
+We will use the map.yaml file as the map file in the test_navigation.sh script.
+
+
