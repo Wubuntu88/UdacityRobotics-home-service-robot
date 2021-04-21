@@ -21,18 +21,18 @@ Here is the robot at the drop-off zone:
 ### Project Startup & Configuration
 To bring the workspace up and running, execute the following commands in the terminal:
 ```bash
-mkdir -p /home/workspace/catkin_ws/src
-cd /home/workspace/catkin_ws/src
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/src
 catkin_init_workspace
 cd ..
 catkin_make
 sudo apt-get update
-cd /home/workspace/catkin_ws/src
+cd ~/catkin_ws/src
 git clone https://github.com/ros-perception/slam_gmapping
 git clone https://github.com/turtlebot/turtlebot
 git clone https://github.com/turtlebot/turtlebot_interactions
 git clone https://github.com/turtlebot/turtlebot_simulator
-cd /home/workspace/catkin_ws/
+cd ~/catkin_ws/
 source devel/setup.bash
 rosdep -i install gmapping
 rosdep -i install turtlebot_teleop
@@ -64,18 +64,25 @@ alias ss="source devel/setup.bash"
 ### catkin_ws/src setup
 Clone the github repo and copy folders into the catkin/src directory:
 ```
-cd /home/workspace/catkin_ws
+cd ~/catkin_ws
 git clone https://github.com/Wubuntu88/UdacityRobotics-home-service-robot.git
 cp -R UdacityRobotics-home-service-robot/map src/
 cp -R UdacityRobotics-home-service-robot/pick_objects src/
 cp -R UdacityRobotics-home-service-robot/add_markers src/
 ```
 
+You will need to rebuild the project:
+```
+cd ~/catkin_ws
+rm -rf build/
+catkin_make
+```
+
 ### Generate the map
 Run the test_slam.sh file and create a map by looking at RViz so that it looks like the Gazebo world.
 When the RViz display looks like the Gazebo display, run the mapsaver command:
 ```bash
-cd home/workspace/catkin_ws/
+cd ~/catkin_ws
 bash UdacityRobotics-home-service-robot/scripts/test_slam.sh
 ```
 ```bash
@@ -85,7 +92,7 @@ to get a map.pgm and map.yaml file.
 the map.yaml file is referenced in the test_navigation.sh script.
 
 The map is located here and is used in the start scripts:
-https://github.com/Wubuntu88/UdacityRobotics-home-service-robot/tree/main/map
+https://github.com/Wubuntu88/UdacityRobotics-home-service-robot/tree/main/pick_objects/map
 
 Here is a visualization of what the map looks like in RViz:
 ![test slam map](images/test_slam_map.png)
@@ -99,7 +106,7 @@ The `home_service_robot.sh` will launch:
 4) The `pick_objects` c++ executable that commands the robot for a pickup and drop-off run.
 5) The `add_markers` c++ executable that displays the marker at the pickup location, then the drop-off location.
 ```bash
-cd home/workspace/catkin_ws/
+cd ~/catkin_ws
 source devel/setup.bash
 bash UdacityRobotics-home-service-robot/scripts/home_service_robot.sh
 ```
