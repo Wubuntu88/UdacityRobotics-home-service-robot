@@ -2,7 +2,7 @@
 
 # TURTLEBOT GAZEBO WORLD: launches gazebo with a world file.
 # package turtlebot_gazebo, launch file: turtlebot_world.launch
-xterm -e "roslaunch turtlebot_gazebo turtlebot_world.launch world_file:=/home/workspace/catkin_ws/src/map/c_shape.world" &
+xterm -e "roslaunch turtlebot_gazebo turtlebot_world.launch world_file:=$(rospack find pick_objects)/map/c_shape.world" &
 sleep 10
 
 # gmapping demo performs SLAM (Simultaneous localization and mapping).
